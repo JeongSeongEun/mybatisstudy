@@ -37,7 +37,49 @@ public class Main4 {
 		list=session.getMapper(StudentMapper.class).select(map);
 		for(Student s:list)
 			System.out.println(s);
-
+		System.out.println("981213ÇÐ¹ø ÇÐ»ý Á¤º¸ Á¶È¸ÇÏ±â");
+		map.clear();
+		map.put("studno", 981213);
+		list=session.getMapper(StudentMapper.class).select(map);
+		for(Student s:list)
+			System.out.println(s);
+		
+		System.out.println();
+		System.out.println("±è»ñ°« ÇÐ»ý Ãß°¡ÇÏ±â");
+		Student st=new Student();
+		st.setStudno(1002);
+		st.setName("±è»ñ°«");
+		st.setJumin("123458-178964");
+		st.setId("kimsk");
+		int result = session.getMapper(StudentMapper.class).insert(st);
+		System.out.println("±è»ñ°« ÇÐ»ý Á¶È¸ÇÏ±â");
+		map.clear();
+		map.put("name", "±è»ñ°«");
+		list = session.getMapper(StudentMapper.class).select(map);
+		for(Student s:list)
+			System.out.println(s);
+		System.out.println("±è»ñ°« ÇÐ»ýÀÇ ÇÐ³â1, ¸ö¹«°Ô 80 , Å° 175·Î º¯°æÇÏ±â");
+		st.setGrade(1);
+		st.setWeight(80);
+		st.setHeight(175);
+		result=session.getMapper(StudentMapper.class).update(st);
+		System.out.println(result+"°Ç ¼öÁ¤");
+		System.out.println("±è»ñ°« ÇÐ»ý Á¶È¸ÇÏ±â");
+		map.clear();
+		map.put("name", "±è»ñ°«");
+		list = session.getMapper(StudentMapper.class).select(map);
+		for(Student s:list)
+			System.out.println(s);
+		System.out.println("1002¹øÇÐ»ý Á¦°ÅÇÏ±â");
+		result=session.getMapper(StudentMapper.class).delete(1002);
+		System.out.println(result+"°Ç »èÁ¦");
+		list = session.getMapper(StudentMapper.class).select(map);
+		for(Student s:list)
+			System.out.println(s);
+		System.out.println();
+		System.out.println("101¹ø ÇÐ°ú ÇÐ»ýÁß 1ÇÐ³â ÇÐ»ý Á¶È¸ÇÏ±â");
+		list = session.getMapper(StudentMapper.class).select2(101,1);
+		for(Student s:list)
+			System.out.println(s);
 	}
-
 }
